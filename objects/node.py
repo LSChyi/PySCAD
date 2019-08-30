@@ -1,12 +1,14 @@
+transformations = {}
+
 class Node:
     def __init__(self):
-        self.childs = []
+        self.children = []
 
-    def _transcript(self, level):
-        return ''.join([ child.transcript(level) for child in self.childs ])
+    def transcript(self):
+        return ''.join([ child.transcript(level) for child in self.children ])
 
-    def transcript(self, level=0):
-        return self._transcript(self, level)
+    def translate(self, vector, *args):
+        return transformations['translate'](vector, self, *args)
 
     def __str__(self):
-        return self.transcript(0)
+        return self.transcript()
