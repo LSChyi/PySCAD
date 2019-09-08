@@ -11,6 +11,9 @@ class Node:
     def difference(self, *args):
         return booleanOperations['difference'](composeTargets(self, *args))
 
+    def intersection(self, *args):
+        return booleanOperations['intersection'](composeTargets(self, *args))
+
     def transcript(self):
         return ''.join([ child.transcript(level) for child in self.children ])
 
