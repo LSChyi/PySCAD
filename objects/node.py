@@ -26,6 +26,9 @@ class Node:
     def mirror(self, vector):
         return transformations['mirror'](vector, self)
 
+    def offset(self, **kwargs):
+        return transformations['offset'](self, **kwargs)
+
     def hull(self, *args):
         return transformations['hull'](composeTargets(self, *args))
 
