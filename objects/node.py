@@ -14,9 +14,6 @@ class Node:
     def intersection(self, *args):
         return booleanOperations['intersection'](composeTargets(self, *args))
 
-    def transcript(self):
-        return ''.join([ child.transcript(level) for child in self.children ])
-
     def translate(self, vector):
         return transformations['translate'](vector, self)
 
@@ -31,6 +28,9 @@ class Node:
 
     def minkowski(self, *args):
         return transformations['minkowski'](composeTargets(self, *args))
+
+    def transcript(self):
+        return ''.join([ child.transcript(level) for child in self.children ])
 
     def __str__(self):
         return self.transcript()

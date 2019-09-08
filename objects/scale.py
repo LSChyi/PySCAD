@@ -1,4 +1,5 @@
 from .util import *
+from .config import *
 from . import node
 
 class scale(node.Node):
@@ -12,8 +13,8 @@ class scale(node.Node):
 
         self.target = target
 
-    def transcript(self):
-        targetStr = self.target.transcript()
-        return f'scale([{self.x}, {self.y}, {self.z}]){{{targetStr}}}'
+    def transcript(self, linePrefix=''):
+        targetStr = self.target.transcript(linePrefix + indent)
+        return f'{linePrefix}scale([{self.x}, {self.y}, {self.z}]){{' + targetStr + f'{linePrefix}}}\n'
 
 node.transformations['scale'] = scale

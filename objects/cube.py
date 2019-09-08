@@ -9,7 +9,7 @@ class cube(Node):
             self.x, self.y, self.z = dimension, dimension, dimension
         self.center = getKey(kwargs, 'center', True)
 
-    def transcript(self):
+    def transcript(self, linePrefix=''):
         opts = []
         if self.x != self.y or self.x != self.z or self.y != self.z:
             opts += [ f'size=[{self.x}, {self.y}, {self.z}]' ]
@@ -18,4 +18,4 @@ class cube(Node):
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         optsStr = ', '.join(opts)
 
-        return f'cube({optsStr});'
+        return f'{linePrefix}cube({optsStr});\n'

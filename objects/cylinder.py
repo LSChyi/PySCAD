@@ -11,7 +11,7 @@ class cylinder(Node):
         self.fs = getKey(kwargs, 'fs')
         self.fn = getKey(kwargs, 'fn')
 
-    def transcript(self):
+    def transcript(self, linePrefix=''):
         opts = [ f'h={self.h}' ]
         if self.r1 != self.r2:
             opts += [ f'r1={self.r1}', f'r2={self.r2}' ]
@@ -23,4 +23,4 @@ class cylinder(Node):
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         optsStr = ', '.join(opts)
         
-        return f'cylinder({optsStr});'
+        return f'{linePrefix}cylinder({optsStr});\n'

@@ -1,4 +1,5 @@
 from .util import *
+from .config import *
 from . import node
 
 class mirror(node.Node):
@@ -9,8 +10,8 @@ class mirror(node.Node):
 
         self.target = target
 
-    def transcript(self):
-        targetStr = self.target.transcript()
-        return f'mirror([{self.x}, {self.y}, {self.z}]){{{targetStr}}}'
+    def transcript(self, linePrefix=''):
+        targetStr = self.target.transcript(linePrefix + indent)
+        return f'{linePrefix}mirror([{self.x}, {self.y}, {self.z}]){{\n' + targetStr + f'{linePrefix}}}\n'
 
 node.transformations['mirror'] = mirror
