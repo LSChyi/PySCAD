@@ -8,6 +8,9 @@ class Node:
     def union(self, *args):
         return booleanOperations['union'](composeTargets(self, *args))
 
+    def difference(self, *args):
+        return booleanOperations['difference'](composeTargets(self, *args))
+
     def transcript(self):
         return ''.join([ child.transcript(level) for child in self.children ])
 
