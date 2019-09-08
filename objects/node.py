@@ -19,6 +19,9 @@ class Node:
     def hull(self, *args):
         return transformations['hull'](composeTargets(self, *args))
 
+    def minkowski(self, *args):
+        return transformations['minkowski'](composeTargets(self, *args))
+
     def __str__(self):
         return self.transcript()
 
