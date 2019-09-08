@@ -20,6 +20,9 @@ class Node:
     def scale(self, scale_factor):
         return transformations['scale'](scale_factor, self)
 
+    def resize(self, vector, **kwargs):
+        return transformations['resize'](vector, self, **kwargs)
+
     def mirror(self, vector):
         return transformations['mirror'](vector, self)
 
