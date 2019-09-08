@@ -10,5 +10,8 @@ class Node:
     def translate(self, vector, *args):
         return transformations['translate'](vector, self, *args)
 
+    def scale(self, scale_factor, *args):
+        return transformations['scale'](scale_factor, self, *args)
+
     def __str__(self):
         return self.transcript()
