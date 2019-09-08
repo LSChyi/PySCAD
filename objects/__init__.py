@@ -2,6 +2,8 @@ from .cube import cube
 from .cylinder import cylinder
 from .sphere import sphere
 
+from .union import union
+
 from .translate import translate
 from .scale import scale
 from .mirror import mirror

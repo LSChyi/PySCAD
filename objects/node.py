@@ -1,8 +1,12 @@
 transformations = {}
+booleanOperations = {}
 
 class Node:
     def __init__(self):
         self.children = []
+
+    def union(self, *args):
+        return booleanOperations['union'](composeTargets(self, *args))
 
     def transcript(self):
         return ''.join([ child.transcript(level) for child in self.children ])
@@ -29,6 +33,8 @@ def composeTargets(target, *args):
     targets = [ target ]
     for obj in args:
         if type(obj) == list:
+            if len(args) != 1:
+                raise Exception(f'invalid input parameters')
             targets += obj
         else:
             targets.append(obj)
