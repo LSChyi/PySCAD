@@ -16,5 +16,17 @@ class Node:
     def mirror(self, vector):
         return transformations['mirror'](vector, self)
 
+    def hull(self, *args):
+        return transformations['hull'](composeTargets(self, *args))
+
     def __str__(self):
         return self.transcript()
+
+def composeTargets(target, *args):
+    targets = [ target ]
+    for obj in args:
+        if type(obj) == list:
+            targets += obj
+        else:
+            targets.append(obj)
+    return targets
