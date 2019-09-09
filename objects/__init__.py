@@ -10,6 +10,7 @@ from .translate import translate
 from .scale import scale
 from .resize import resize
 from .mirror import mirror
+from .color import color
 from .offset import offset
 from .hull import hull
 from .minkowski import minkowski

@@ -26,6 +26,9 @@ class Node:
     def mirror(self, vector):
         return transformations['mirror'](vector, self)
 
+    def color(self, colorVal, **kwargs):
+        return transformations['color'](colorVal, self, **kwargs)
+
     def offset(self, **kwargs):
         return transformations['offset'](self, **kwargs)
 
