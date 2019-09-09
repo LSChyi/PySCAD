@@ -7,6 +7,7 @@ from .difference import difference
 from .intersection import intersection
 
 from .translate import translate
+from .rotate import rotate
 from .scale import scale
 from .resize import resize
 from .mirror import mirror

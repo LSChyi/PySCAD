@@ -17,6 +17,9 @@ class Node:
     def translate(self, vector):
         return transformations['translate'](vector, self)
 
+    def rotate(self, deg, vector):
+        return transformations['rotate'](deg, vector, self)
+
     def scale(self, scale_factor):
         return transformations['scale'](scale_factor, self)
 
