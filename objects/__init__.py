@@ -1,4 +1,5 @@
 from .circle import circle
+from .square import square
 
 from .cube import cube
 from .cylinder import cylinder
