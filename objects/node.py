@@ -14,6 +14,9 @@ class Node:
     def intersection(self, *args):
         return booleanOperations['intersection'](composeTargets(self, *args))
 
+    def linear_extrude(self, h, **kwargs):
+        return transformations['linear_extrude'](h, self, **kwargs)
+
     def projection(self, **kwargs):
         return transformations['projection'](self, **kwargs)
 
