@@ -3,7 +3,7 @@ from .node import Node
 
 class sphere(Node):
     def __init__(self, r=0, **kwargs):
-        self.r = r
+        self.r = getDiameterKey(kwargs, 'd', r)
         self.fa = getKey(kwargs, 'fa')
         self.fs = getKey(kwargs, 'fs')
         self.fn = getKey(kwargs, 'fn')
