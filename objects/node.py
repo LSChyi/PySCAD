@@ -17,6 +17,9 @@ class Node:
     def linear_extrude(self, h, **kwargs):
         return transformations['linear_extrude'](h, self, **kwargs)
 
+    def rotate_extrude(self, **kwargs):
+        return transformations['rotate_extrude'](self, **kwargs)
+
     def projection(self, **kwargs):
         return transformations['projection'](self, **kwargs)
 
