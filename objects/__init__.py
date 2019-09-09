@@ -9,6 +9,7 @@ from .union import union
 from .difference import difference
 from .intersection import intersection
 
+from .projection import projection
 from .translate import translate
 from .rotate import rotate
 from .scale import scale

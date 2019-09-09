@@ -14,6 +14,9 @@ class Node:
     def intersection(self, *args):
         return booleanOperations['intersection'](composeTargets(self, *args))
 
+    def projection(self, **kwargs):
+        return transformations['projection'](self, **kwargs)
+
     def translate(self, vector):
         return transformations['translate'](vector, self)
 
