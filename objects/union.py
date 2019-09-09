@@ -6,6 +6,8 @@ class union(node.Node):
         self.children = []
         if type(target) == list:
             self.children = target
+        else:
+            self.children.append(target)
         self.children += args
 
     def transcript(self, linePrefix=''):
