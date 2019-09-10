@@ -7,6 +7,7 @@ from .polygon import polygon
 from .cube import cube
 from .cylinder import cylinder
 from .sphere import sphere
+from .polyhedron import polyhedron
 from .surface import surface
 
 from .union import union

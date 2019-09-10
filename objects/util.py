@@ -12,3 +12,6 @@ def is3DVector(val):
 
 def getDiameterKey(kwargs, key, defaultRadius):
     return defaultRadius if key not in kwargs else kwargs[key] / 2
+
+def convertPointToStr(path):
+    return '[' + ', '.join([ str(p) for p in path ]) + ']'

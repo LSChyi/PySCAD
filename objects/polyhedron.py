@@ -1,20 +1,20 @@
 from .util import *
 from . import node
 
-class polygon(node.Node):
-    def __init__(self, points, paths=[], **kwargs):
+class polyhedron(node.Node):
+    def __init__(self, points, faces=[], **kwargs):
         for point in points:
-            if not is2Dvector(point):
+            if not is3DVector(point):
                 raise Exception(f'invalid point {point}')
         self.points = points
-        self.paths = paths
+        self.faces = faces
         self.convexity = getKey(kwargs, 'convexity')
 
     def transcript(self, linePrefix=''):
         points = ', '.join([ convertPointToStr(p) for p in self.points ])
-        paths = ', '.join([ convertPointToStr(path) for path in self.paths ])
+        faces = ', '.join([ convertPointToStr(p) for p in self.faces ])
         opts = [ f'points=[{points}]' ]
-        opts += [ f'paths=[{paths}]' ] if self.paths else []
+        opts += [ f'faces=[{faces}]' ] if self.faces else []
         opts += convertToOptionList('convexity', self.convexity)
         optsStr = ', '.join(opts)
-        return f'{linePrefix}polygon({optsStr})\n'
+        return f'{linePrefix}polyhedron({optsStr})\n'
