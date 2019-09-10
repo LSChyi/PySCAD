@@ -5,6 +5,7 @@ from .importFile import importFile
 from .cube import cube
 from .cylinder import cylinder
 from .sphere import sphere
+from .surface import surface
 
 from .union import union
 from .difference import difference
