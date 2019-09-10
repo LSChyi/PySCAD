@@ -4,7 +4,7 @@ from . import node
 
 class mirror(node.Node):
     def __init__(self, vector, target):
-        if not isVector(vector):
+        if not is3DVector(vector):
             raise Exception('invalid vector: {vector}')
         self.x, self.y, self.z = vector
 

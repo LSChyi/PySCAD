@@ -4,7 +4,7 @@ from . import node
 
 class scale(node.Node):
     def __init__(self, scale_factor, target):
-        if isVector(scale_factor):
+        if is3DVector(scale_factor):
             self.x, self.y, self.z = scale_factor
         elif type(scale_factor) == int or float:
             self.x = self.y = self.z = scale_factor

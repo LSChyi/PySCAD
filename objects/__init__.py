@@ -2,6 +2,7 @@ from .circle import circle
 from .square import square
 from .importFile import importFile
 from .text import text
+from .polygon import polygon
 
 from .cube import cube
 from .cylinder import cylinder

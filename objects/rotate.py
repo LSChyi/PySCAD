@@ -4,7 +4,7 @@ from . import node
 
 class rotate(node.Node):
     def __init__(self, deg, vector, targets, *args):
-        if not isVector(vector):
+        if not is3DVector(vector):
             raise Exception('invalid vector: {vector}')
         self.x, self.y, self.z = vector
         self.deg = deg

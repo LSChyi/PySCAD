@@ -3,7 +3,7 @@ from .node import Node
 
 class cube(Node):
     def __init__(self, dimension, **kwargs):
-        if isVector(dimension):
+        if is3DVector(dimension):
             self.x, self.y, self.z = dimension
         else:
             self.x, self.y, self.z = dimension, dimension, dimension

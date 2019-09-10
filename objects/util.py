@@ -4,7 +4,10 @@ def getKey(kwargs, key, defaultVal=None):
 def convertToOptionList(key, val):
     return [ f'{key}={val}' ] if val != None else []
 
-def isVector(val):
+def is2Dvector(val):
+    return False if type(val) != list or len(val) != 2 else True
+
+def is3DVector(val):
     return False if type(val) != list or len(val) != 3 else True
 
 def getDiameterKey(kwargs, key, defaultRadius):

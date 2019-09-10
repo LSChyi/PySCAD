@@ -5,7 +5,7 @@ from .hull import hull
 
 class resize(node.Node):
     def __init__(self, vector, target, **kwargs):
-        if not isVector(vector):
+        if not is3DVector(vector):
             raise Exception('invalid vector: {vector}')
         self.x, self.y, self.z = vector
         self.auto = getKey(kwargs, 'auto')

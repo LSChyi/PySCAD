@@ -3,9 +3,7 @@ from .node import Node
 
 class square(Node):
     def __init__(self, dimension, **kwargs):
-        if type(dimension) == list:
-            if len(dimension) != 2:
-                raise Exception(f'invalid dimention for square {dimension}')
+        if is2Dvector(dimension):
             self.x, self.y = dimension
         else:
             self.x = self.y = dimension
