@@ -1,5 +1,6 @@
 from .circle import circle
 from .square import square
+from .importFile import importFile
 
 from .cube import cube
 from .cylinder import cylinder
