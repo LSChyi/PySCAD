@@ -8,10 +8,10 @@ class surface(node.Node):
         self.invert = getKey(kwargs, 'invert')
         self.convexity = getKey(kwargs, 'convexity')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = [ f'"{self.path}"' ]
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         opts += [ 'invert=' + 'true' if self.invert else 'false' ]
         opts += convertToOptionList('convexity', self.convexity)
         optsStr = ', '.join(opts)
-        return f'{linePrefix}surface({optsStr});\n'
+        return f'surface({optsStr});\n'

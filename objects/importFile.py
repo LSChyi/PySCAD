@@ -7,9 +7,9 @@ class importFile(node.Node):
         self.convexity = getKey(kwargs, 'convexity')
         self.layer = getKey(kwargs, 'layer')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = [ f'"{self.path}"' ]
         opts += convertToOptionList('convexity', self.convexity)
         opts += convertToOptionList('layer', self.layer)
         optsStr = ', '.join(opts)
-        return f'{linePrefix}import({optsStr});\n'
+        return f'import({optsStr});\n'

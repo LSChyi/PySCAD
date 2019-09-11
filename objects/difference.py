@@ -1,10 +1,9 @@
 from . import node
-from .config import *
 from .union import union
 
 class difference(union):
-    def transcript(self, linePrefix=''):
-        childrenStr = ''.join([ child.transcript(linePrefix + indent) for child in self.children ])
-        return f'{linePrefix}difference(){{\n' + childrenStr + f'{linePrefix}}}\n'
+    def transcript(self):
+        childrenStr = ''.join([ child.transcript() for child in self.children ])
+        return f'difference(){{\n' + childrenStr + f'}}\n'
 
 node.booleanOperations['difference'] = difference

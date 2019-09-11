@@ -9,7 +9,7 @@ class square(Node):
             self.x = self.y = dimension
         self.center = getKey(kwargs, 'center', True)
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = []
         if self.x != self.y:
             opts += [ f'size=[{self.x}, {self.y}]' ]
@@ -18,4 +18,4 @@ class square(Node):
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         optsStr = ', '.join(opts)
 
-        return f'{linePrefix}square({optsStr});\n'
+        return f'square({optsStr});\n'

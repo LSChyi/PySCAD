@@ -1,4 +1,3 @@
-from .config import *
 from . import node
 
 class union(node.Node):
@@ -10,8 +9,8 @@ class union(node.Node):
             self.children.append(target)
         self.children += args
 
-    def transcript(self, linePrefix=''):
-        childrenStr = ''.join([ child.transcript(linePrefix + indent) for child in self.children ])
-        return f'{linePrefix}union(){{\n' + childrenStr + f'{linePrefix}}}\n'
+    def transcript(self):
+        childrenStr = ''.join([ child.transcript() for child in self.children ])
+        return f'union(){{\n' + childrenStr + f'}}\n'
 
 node.booleanOperations['union'] = union

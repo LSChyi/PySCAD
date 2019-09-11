@@ -1,5 +1,4 @@
 from .util import *
-from .config import *
 from . import node
 
 class translate(node.Node):
@@ -15,8 +14,8 @@ class translate(node.Node):
             self.children = targets
         self.children += args
 
-    def transcript(self, linePrefix=''):
-        childrenStr = ''.join([ child.transcript(linePrefix + indent) for child in self.children ])
-        return f'{linePrefix}translate([{self.x}, {self.y}, {self.z}]){{\n' + childrenStr + f'{linePrefix}}}\n'
+    def transcript(self):
+        childrenStr = ''.join([ child.transcript() for child in self.children ])
+        return f'translate([{self.x}, {self.y}, {self.z}]){{\n' + childrenStr + f'}}\n'
 
 node.transformations['translate'] = translate

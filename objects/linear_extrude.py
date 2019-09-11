@@ -1,5 +1,4 @@
 from . import node
-from .config import *
 from .util import *
 
 class linear_extrude(node.Node):
@@ -13,7 +12,7 @@ class linear_extrude(node.Node):
         self.scale = getKey(kwargs, 'scale')
         self.fn = getKey(kwargs, 'fn')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = [ f'h={self.h}' ]
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         opts += convertToOptionList('convexity', self.convexity)
@@ -22,7 +21,7 @@ class linear_extrude(node.Node):
         opts += convertToOptionList('scale', self.scale)
         opts += convertToOptionList('$fn', self.fn)
         optsStr = ', '.join(opts)
-        targetStr = self.target.transcript(linePrefix + indent)
-        return f'{linePrefix}linear_extrude({optsStr}){{\n' + targetStr + f'{linePrefix}}}\n'
+        targetStr = self.target.transcript()
+        return f'linear_extrude({optsStr}){{\n' + targetStr + f'}}\n'
 
 node.transformations['linear_extrude'] = linear_extrude

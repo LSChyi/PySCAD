@@ -1,5 +1,4 @@
 from .util import *
-from .config import *
 from . import node
 
 class color(node.Node):
@@ -16,8 +15,8 @@ class color(node.Node):
 
         self.target = target
 
-    def transcript(self, linePrefix=''):
-        targetStr = self.target.transcript(linePrefix + indent)
+    def transcript(self):
+        targetStr = self.target.transcript()
         opts = []
         if self.colorStrVal:
             opts.append(f'"{self.colorStrVal}"')
@@ -26,6 +25,6 @@ class color(node.Node):
         opts += convertToOptionList('alpha', self.a)
         optsStr = ', '.join(opts)
 
-        return f'{linePrefix}color({optsStr}){{\n' + targetStr + f'{linePrefix}}}\n'
+        return f'color({optsStr}){{\n' + targetStr + f'}}\n'
 
 node.transformations['color'] = color

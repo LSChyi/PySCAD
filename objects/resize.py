@@ -1,5 +1,4 @@
 from . import node
-from .config import *
 from .util import *
 from .hull import hull
 
@@ -11,11 +10,11 @@ class resize(node.Node):
         self.auto = getKey(kwargs, 'auto')
         self.target = target
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = [ f'[{self.x}, {self.y}, {self.z}]' ]
         opts += [ 'auto=' + 'true' if self.auto else 'false' ]
         optsStr = ', '.join(opts)
-        targetStr = self.target.transcript(linePrefix + indent)
-        return f'{linePrefix}resize({optsStr}){{\n' + targetStr + f'{linePrefix}}}\n'
+        targetStr = self.target.transcript()
+        return f'resize({optsStr}){{\n' + targetStr + f'}}\n'
 
 node.transformations['resize'] = resize

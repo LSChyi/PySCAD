@@ -1,5 +1,4 @@
 from .util import *
-from .config import *
 from . import node
 
 class hull(node.Node):
@@ -12,8 +11,8 @@ class hull(node.Node):
 
         self.children += args
 
-    def transcript(self, linePrefix=''):
-        childrenStr = ''.join([ child.transcript(linePrefix + indent) for child in self.children ])
-        return f'{linePrefix}hull(){{\n' + childrenStr + f'{linePrefix}}}\n'
+    def transcript(self):
+        childrenStr = ''.join([ child.transcript() for child in self.children ])
+        return f'hull(){{\n' + childrenStr + f'}}\n'
 
 node.transformations['hull'] = hull

@@ -1,5 +1,4 @@
 from .util import *
-from .config import *
 from . import node
 
 class offset(node.Node):
@@ -9,7 +8,7 @@ class offset(node.Node):
         self.delta = getKey(kwargs, 'delta')
         self.chamfer = getKey(kwargs, 'chamfer')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = []
         if self.r:
             opts += convertToOptionList('r', self.r)
@@ -18,8 +17,8 @@ class offset(node.Node):
         opts += [ 'chamfer=' + 'true' if self.chamfer else 'false' ]
         optsStr = ', '.join(opts)
 
-        targetStr = self.target.transcript(linePrefix + indent)
+        targetStr = self.target.transcript()
 
-        return f'{linePrefix}offset({optsStr}){{\n' + targetStr + f'{linePrefix}}}\n'
+        return f'offset({optsStr}){{\n' + targetStr + f'}}\n'
 
 node.transformations['offset'] = offset

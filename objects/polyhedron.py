@@ -10,11 +10,11 @@ class polyhedron(node.Node):
         self.faces = faces
         self.convexity = getKey(kwargs, 'convexity')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         points = ', '.join([ convertPointToStr(p) for p in self.points ])
         faces = ', '.join([ convertPointToStr(p) for p in self.faces ])
         opts = [ f'points=[{points}]' ]
         opts += [ f'faces=[{faces}]' ] if self.faces else []
         opts += convertToOptionList('convexity', self.convexity)
         optsStr = ', '.join(opts)
-        return f'{linePrefix}polyhedron({optsStr})\n'
+        return f'polyhedron({optsStr});\n'

@@ -1,6 +1,8 @@
 transformations = {}
 booleanOperations = {}
 
+indentNum = 2
+
 class Node:
     def __init__(self):
         self.children = []
@@ -51,10 +53,22 @@ class Node:
         return transformations['minkowski'](composeTargets(self, *args))
 
     def transcript(self):
-        return ''.join([ child.transcript(level) for child in self.children ])
+        return ''.join([ child.transcript() for child in self.children ])
 
     def __str__(self):
-        return self.transcript()
+        lines = self.transcript()
+        counter = 0
+        res = []
+        for line in lines.splitlines():
+            if line[-1] == '{':
+                res.append(' ' * indentNum * counter + line)
+                counter += 1
+            elif line[-1] == '}':
+                counter -= 1
+                res.append(' ' * indentNum * counter + line)
+            else:
+                res.append(' ' * indentNum * counter + line)
+        return '\n'.join(res)
 
 def composeTargets(target, *args):
     targets = [ target ]

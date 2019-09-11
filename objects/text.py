@@ -13,7 +13,7 @@ class text(node.Node):
         self.script = getKey(kwargs, 'scripte')
         self.fn = getKey(kwargs, 'fn')
 
-    def transcript(self, linePrefix=''):
+    def transcript(self):
         opts = [ f'"{self.text}"' ]
         opts += convertToOptionList('size', self.size)
         opts += convertToStringOptionList('font', self.font)
@@ -24,7 +24,7 @@ class text(node.Node):
         opts += convertToStringOptionList('script', self.script)
         opts += convertToOptionList('$fn', self.fn)
         optsStr = ', '.join(opts)
-        return f'{linePrefix}text();\n'
+        return f'text();\n'
     
 def convertToStringOptionList(key, val):
     return [ f'{key}="{val}"' ] if val != None else []
