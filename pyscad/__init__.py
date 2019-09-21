@@ -1,3 +1,5 @@
+from .node import Node
+
 from .circle import circle
 from .square import square
 from .importFile import importFile

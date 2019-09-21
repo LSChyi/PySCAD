@@ -6,7 +6,6 @@
 PySCAD: Python 3D Modeling Tool
 ===============================
 
-
 **PySCAD** is a 3D modeling libaray that allows users to adpot the elegacne, power 
 and simplity of Python to design 3D models with `OpenSCAD <https://www.openscad.org>`_.
 
@@ -36,9 +35,14 @@ code. With PySCAD, you can write code like this::
 , which makes implementing the code has the same flow when we are describing it,
 and this greatly relief the minds of developers and designers.
 
+API Documentation
+-----------------
+Below is the documentation for a specific function or class.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+
+   api
 
 
 

@@ -1,3 +1,4 @@
+"""Circle module implements the circle function in OpenSCAD"""
 from .util import *
 from .sphere import sphere
 

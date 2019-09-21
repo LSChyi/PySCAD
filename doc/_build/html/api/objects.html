@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>node &#8212; PySCAD  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Developer Interface" href="../api.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="node">
+<span id="id1"></span><h1>node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-pyscad"></span><div class="section" id="id2">
+<h2>Node<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyscad.Node">
+<em class="property">class </em><code class="sig-prename descclassname">pyscad.</code><code class="sig-name descname">Node</code><a class="headerlink" href="#pyscad.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base of all classes</p>
+<p>This class implements a shortcut of transformations and boolean operations,
+which allow users to call these shortcut methods in a cascading way. As a
+result, all classes inherent from it also have the cascading way to call
+transformations and boolean operations, and all classes in PySCAD are also
+a kind of Node.</p>
+<dl class="method">
+<dt id="pyscad.Node.color">
+<code class="sig-name descname">color</code><span class="sig-paren">(</span><em class="sig-param">colorVal</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of color transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colorVal</strong> (<em>color name</em><em> (</em><em>str</em><em>)</em><em>, </em><em>hex value</em><em>(</em><em>str</em><em>)</em><em>, </em><em>3-d vector</em><em>(</em><em>[</em><em>r</em><em>, </em><em>g</em><em>, </em><em>b</em><em>]</em><em>) or </em><em>4-d vector</em><em>(</em><em>[</em><em>r</em><em>, </em><em>g</em><em>, </em><em>b</em><em>, </em><em>a</em><em>]</em><em>)</em>) – The color value.</p></li>
+<li><p><strong>**alpha</strong> (<em>number</em>) – The alpha value used in this color.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A color node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of difference operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>list of nodes</em><em>, </em><em>ex: difference</em><em>(</em><em>[</em><em>node1</em><em>, </em><em>node2</em><em>]</em><em>) or </em><em>difference</em><em>(</em><em>node1</em><em>, </em><em>node2</em><em>)</em>) – The nodes to be eliminated with this objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A difference node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.hull">
+<code class="sig-name descname">hull</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.hull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of hull transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>list of nodes</em><em>, </em><em>ex: hull</em><em>(</em><em>[</em><em>node1</em><em>, </em><em>node2</em><em>]</em><em>) or </em><em>hull</em><em>(</em><em>node1</em><em>, </em><em>node2</em><em>)</em>) – The nodes to be hulled with this objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A hull node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.intersection">
+<code class="sig-name descname">intersection</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of intersection operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>list of nodes</em><em>, </em><em>ex: intersection</em><em>(</em><em>[</em><em>node1</em><em>, </em><em>node2</em><em>]</em><em>) or </em><em>intersection</em><em>(</em><em>node1</em><em>, </em><em>node2</em><em>)</em>) – The nodes to be intersected with this objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A intersection node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.linear_extrude">
+<code class="sig-name descname">linear_extrude</code><span class="sig-paren">(</span><em class="sig-param">h</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.linear_extrude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of linear_extrude transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>number</em>) – Extrusion height.</p></li>
+<li><p><strong>**center</strong> (<em>boolean</em>) – Generate this extrusion at center, default is True.</p></li>
+<li><p><strong>**convexity</strong> (<em>number</em>) – The convexity for the extrusion.</p></li>
+<li><p><strong>**twist</strong> (<em>number</em>) – The twist used in this extrusion.</p></li>
+<li><p><strong>**slices</strong> (<em>number</em>) – The slice used in this extrusion.</p></li>
+<li><p><strong>**scale</strong> (<em>number</em>) – The scale used in this extrusion.</p></li>
+<li><p><strong>**fn</strong> (<em>number</em>) – The $fn used in this extrusion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A linear_extrude node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.minkowski">
+<code class="sig-name descname">minkowski</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.minkowski" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of minkowski transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>list of nodes</em><em>, </em><em>ex: minkowski</em><em>(</em><em>[</em><em>node1</em><em>, </em><em>node2</em><em>]</em><em>) or </em><em>minkowski</em><em>(</em><em>node1</em><em>, </em><em>node2</em><em>)</em>) – The nodes to apply minkowski transformation with this objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A minkowski node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.mirror">
+<code class="sig-name descname">mirror</code><span class="sig-paren">(</span><em class="sig-param">vector</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of mirror transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> (<em>a list composed of 3 numbers</em>) – The normal vector of a plane used in mirror transformation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A mirror node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.offset">
+<code class="sig-name descname">offset</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of offset transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>number</em>) – Amount to offset.</p></li>
+<li><p><strong>delta</strong> (<em>number</em>) – Amount to offset.</p></li>
+<li><p><strong>chamfer</strong> (<em>boolean</em>) – Whether to apply chamfer on the offset when using delta, default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A offset node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.projection">
+<code class="sig-name descname">projection</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of projection transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**cut</strong> (<em>boolean</em>) – The cut used in this projection, default is False.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A projection node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.resize">
+<code class="sig-name descname">resize</code><span class="sig-paren">(</span><em class="sig-param">vector</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of resize transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vector</strong> (<em>a list composed of 3 numbers</em>) – The vector used in resize transformation.</p></li>
+<li><p><strong>**auto</strong> (<em>boolean</em>) – Whether to auto-scale any 0-valued dimension in given vector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A resize node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.rotate">
+<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">deg</em>, <em class="sig-param">vector</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of translate transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>deg</strong> (<em>nubmer</em>) – The degree to rotate.</p></li>
+<li><p><strong>vector</strong> (<em>a list composed of 3 numbers</em>) – The axis used in rotation. In OpenSCAD, it follows the right hand rule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A rotate node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.rotate_extrude">
+<code class="sig-name descname">rotate_extrude</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.rotate_extrude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of rotate_extrude transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**angle</strong> (<em>number</em>) – The angle for the extrusion.</p></li>
+<li><p><strong>**convexity</strong> (<em>number</em>) – The convexity for the extrusion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A rotate_extrude node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.scale">
+<code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param">scale_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of scale transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scale_factor</strong> (<em>a list composed of 3 numbers</em>) – The vector used in scale transformation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A scale node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.transcript">
+<code class="sig-name descname">transcript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.transcript" title="Permalink to this definition">¶</a></dt>
+<dd><p>transcript to OpenSCAD code</p>
+<p>No indentation will be added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param">vector</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of translate transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> (<em>a list composed of 3 numbers</em>) – Indicates how to move this object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – A translate node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyscad.Node.union">
+<code class="sig-name descname">union</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.Node.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short cut of union operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>list of nodes</em><em>, </em><em>ex: union</em><em>(</em><em>[</em><em>node1</em><em>, </em><em>node2</em><em>]</em><em>) or </em><em>union</em><em>(</em><em>node1</em><em>, </em><em>node2</em><em>)</em>) – The nodes to be unionized with this objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – An union node.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyscad.Node" title="pyscad.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="circle">
+<h2>Circle<a class="headerlink" href="#circle" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyscad.circle">
+<em class="property">class </em><code class="sig-prename descclassname">pyscad.</code><code class="sig-name descname">circle</code><span class="sig-paren">(</span><em class="sig-param">r=0</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base of all fuck</p>
+<p>This class implements a shortcut of transformations and boolean operations,
+which allow users to call these shortcut methods in a cascading way. As a
+result, all classes inherent from it also have the cascading way to call
+transformations and boolean operations, and all classes in PySCAD are also
+a kind of Node.</p>
+<dl class="method">
+<dt id="pyscad.circle.transcript">
+<code class="sig-name descname">transcript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyscad.circle.transcript" title="Permalink to this definition">¶</a></dt>
+<dd><p>transcript to OpenSCAD code</p>
+<p>No indentation will be added.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PySCAD</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Developer Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#objects">Objects</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">Developer Interface</a><ul>
+      <li>Previous: <a href="../api.html" title="previous chapter">Developer Interface</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, LSChyi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/objects.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
