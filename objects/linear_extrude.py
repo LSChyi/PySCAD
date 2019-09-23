@@ -2,7 +2,7 @@ from . import node
 from .util import *
 
 class linear_extrude(node.Node):
-    def __init_(self, h, target, **kwargs):
+    def __init__(self, h, target, **kwargs):
         self.h = h
         self.target = target
         self.center = getKey(kwargs, 'center', True)
@@ -13,7 +13,7 @@ class linear_extrude(node.Node):
         self.fn = getKey(kwargs, 'fn')
 
     def transcript(self):
-        opts = [ f'h={self.h}' ]
+        opts = [ f'height={self.h}' ]
         opts += [ 'center=' + 'true' if self.center else 'false' ]
         opts += convertToOptionList('convexity', self.convexity)
         opts += convertToOptionList('twist', self.twist)

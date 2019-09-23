@@ -2,7 +2,7 @@ from . import node
 from .util import *
 
 class rotate_extrude(node.Node):
-    def __init_(self, target, **kwargs):
+    def __init__(self, target, **kwargs):
         self.target = target
         self.angle = getKey(kwargs, 'angle')
         self.convexity = getKey(kwargs, 'convexity')
